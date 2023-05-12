@@ -1,13 +1,203 @@
 {
   "READ ME: MESSING AROUND WITH THESE VALUES MIGHT DESTROY YOUR DISCORD BOT. MODIFY ON YOUR BEHALF!": "!!",
   "prefix": "!",
-  "commands": {},
-  "count": 0,
+  "commands": {
+    "1": {
+      "count": 1,
+      "name": "NewCommand",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "2": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "3": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "4": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "5": {
+      "count": 2,
+      "name": "rNew Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Await Button Interaction",
+          "file": "awaitButtonPress_event.js",
+          "data": {
+            "name": "Await Button Interaction",
+            "customID": "",
+            "storeAs": "",
+            "messageVariable": "",
+            "runAfter": "",
+            "buttonCustomId": "",
+            "fromWho": "",
+            "awaitFrom": "Anybody",
+            "stopAfter": "60",
+            "button": "✓",
+            "postAction": "Acknowledge Interaction",
+            "postActionField": ""
+          }
+        },
+        "2": {
+          "name": "Add Reaction",
+          "file": "addReaction.js",
+          "data": {
+            "name": "Add Reaction",
+            "storeAs": "",
+            "messageVariable": "",
+            "emoji": ""
+          }
+        }
+      }
+    },
+    "6": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "7": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "8": {
+      "count": 1,
+      "name": "NewCommand",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    },
+    "9": {
+      "count": 1,
+      "name": "New Command",
+      "type": "action",
+      "trigger": "textCommand",
+      "actions": {
+        "1": {
+          "name": "Send Message",
+          "file": "sendmessage.js",
+          "data": {
+            "messageContent": "Hello World!",
+            "button": "Message Channel",
+            "ExtraData": "",
+            "name": "Send Message"
+          }
+        }
+      }
+    }
+  },
+  "count": 9,
   "settings": {},
   "color": "rgb(20, 20, 20)",
   "btk": "YOUR_BOTS_TOKEN",
-  "clientID": "YOUR_BOTS_CLIENT_ID",
+  "clientID": "YOUR_BO`TS_CLIENT_ID",
   "name": "YOUR_BOTS_NAME",
   "prjSrc": "",
-  "reset": true
+  "reset": false,
+  "buttons": {
+    "bars": [
+      {
+        "name": "Bar",
+        "storeAs": "ButtonBar",
+        "buttons": []
+      }
+    ]
+  }
 }

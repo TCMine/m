@@ -1,6 +1,16 @@
 const { app, BrowserWindow, contextBridge, ipcMain } = require('electron');
-let win;
 
+
+// Enable live reload for Electron too
+if (process.argv[2] == '--dev') {
+  require('electron-reload')(__dirname, {
+    // Note that the path to electron may vary according to the main file
+    electron: require(`${__dirname}/node_modules/electron`),
+    ignored: /\/node_modules\/|\/AppData\/data\.json$/i
+  });
+}
+ 
+let win;
 function createWindow() {
   win = new BrowserWindow({
     width: 1170,
@@ -36,24 +46,20 @@ autoUpdater.setFeedURL({
     provider: 'github',
     owner: 'RatWasHere',
     repo: 'studiobotmaker'
-  });
-  autoUpdater.autoDownload = false;
-  autoUpdater.autoInstallOnAppQuit = false;
-  const { remote } = require('electron') 
+});
+autoUpdater.autoDownload = false;
+autoUpdater.autoInstallOnAppQuit = false;
+const { remote } = require('electron') 
   
-  
-  app.on('ready', () => {
+app.on('ready', () => {
+  const fess = require('fs');
+  const processPathe = require('process').cwd();
 
-    const fess = require('fs');
-const processPathe = require('process').cwd();
-
-try {
-if (fess.readdirSync(processPathe + '\\AppData')) {
-
-} else {
-
-}
-} catch (err) {
+  try {
+    if (fess.readdirSync(processPathe + '\\AppData')) {
+    } else {
+    }
+  } catch (err) {
   const request = require('request');
   const fs = require('fs');
   const unzipper = require('unzipper');
@@ -104,8 +110,6 @@ if (fess.readdirSync(processPathe + '\\AppData')) {
     }
 
   }, 6000)
-  
-  
 }
 
 /* UPDATES */

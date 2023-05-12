@@ -1,6 +1,7 @@
 let version = 3
+console.log(version)
 const { app, ipcRenderer } = require('electron');
-function Get(yourUrl){
+function Get(yourUrl) {
     var Httpreq = new XMLHttpRequest(); // a new request
     Httpreq.open("GET",yourUrl,false);
     Httpreq.send(null);
@@ -33,8 +34,8 @@ ipcRenderer.on('checkedForUpdates', (event, arg) => {
             `
         }, 500)
     }   
-  });
-  function update() {
+});
+function update() {
     setTimeout(() => {
         let bottombar = document.getElementById('bottombar')
         bottombar.style.animationDuration = ''
@@ -71,7 +72,7 @@ ipcRenderer.on('checkedForUpdates', (event, arg) => {
                 }
             })
         }, 50)
-  }, 600)
+}, 600)
 
 }
 
@@ -93,26 +94,26 @@ let newc = datjson.color
 document.body.style.background = `linear-gradient(45deg, ${newc} 0%, #121212 160%)`
 document.onkeydown = function(event) {
     handleKeybind(event)
-  };
+};
 
-  if (datjson.reset == true) {
+if (datjson.reset == true) {
     try {
-  if (fs.readFileSync('C:\\ProgramData\\studiodata.json')) {
+if (fs.readFileSync('C:\\ProgramData\\studiodata.json')) {
     datjson = JSON.parse(fs.readFileSync('C:\\ProgramData\\studiodata.json'))
     datjson.reset = false;
     fs.writeFileSync('C:\\ProgramData\\studiodata.json', JSON.stringify(datjson, null, 2))
     fs.writeFileSync(processPath +'/AppData/data.json', JSON.stringify(datjson, null, 2));
 
-  } else {
+} else {
     datjson.reset = false;
     fs.writeFileSync('C:\\ProgramData\\studiodata.json', JSON.stringify(datjson, null, 2))
-  }
+}
 } catch (err) {
     datjson.reset = false;
     fs.writeFileSync('C:\\ProgramData\\studiodata.json', JSON.stringify(datjson, null, 2))
 }
 }
-  function highlight(element, bln, blne) {
+function highlight(element, bln, blne) {
     if (lastHighlighted) {
     lastHighlighted.style.backgroundColor = '#FFFFFF15'
     }
@@ -219,7 +220,7 @@ function showAvailableSlots(elm) {
             <div class="barbuttontexta">Empty Slot</div>
             </div>
             `           
-             toCompensateFor++
+            toCompensateFor++
 
         }
         document.getElementById('actionElements').innerHTML += "<br>"
@@ -461,6 +462,7 @@ function switchObjs() {
         <div class="barbutton borderrighttop" style="animation-duration: 0.6s"><div class="barbuttontexta">Toggle Bot</div></div>
         <div class="barbutton bordercenter" onclick="exportProject()" style="animation-duration: 0.6s"><div class="barbuttontexta">Export Project</div></div>
         <div class="barbutton borderlefttop" onclick="settoken(this)" style="animation-duration: 0.6s"><div class="barbuttontexta">Bot Data</div></div>
+        <div class="barbutton borderlefttop" onclick="settoken(this)" style="animation-duration: 0.6s"><div class="barbuttontexta">Rich Presence</div></div>
             </div>
         </div>`
         bottombar.style.animationName = ''
@@ -766,15 +768,15 @@ function switchObjs() {
             `
         }, 600)
 
-   }
-   function brd() {
+}
+function brd() {
     let bottombar = document.getElementById('bottombar')
 
     bottombar.onclick = () => {
         document.getElementById('wedf').onclick = () => {switchGroups()}
         unmodify()
     }
-   }
+}
     function storetoken(what) {
         datjson.btk = what
         fs.writeFileSync(processPath +'\\AppData\\data.json', JSON.stringify(datjson, null, 2));
@@ -802,7 +804,7 @@ function switchObjs() {
         let count = parseFloat(datjson.count) + 1
         datjson.count = count
         if (lastType == 0) {
-                   ActionTile.innerHTML += `<div onclick="highlight(this, true, true)" class="action textToLeft" id="${datjson.count}" ondblclick="cmdOpen('${datjson.count}')"><div id="name">${datjson.commands[lastObj].name}</div> <div style="opacity: 50%; margin-left: 7px;"> | ${datjson.commands[lastObj].count} Actions </div> <div class="deleteActionButton" onclick="highlight(this.parentNode, true, true); deleteObject(this);">✕</div> `
+                ActionTile.innerHTML += `<div onclick="highlight(this, true, true)" class="action textToLeft" id="${datjson.count}" ondblclick="cmdOpen('${datjson.count}')"><div id="name">${datjson.commands[lastObj].name}</div> <div style="opacity: 50%; margin-left: 7px;"> | ${datjson.commands[lastObj].count} Actions </div> <div class="deleteActionButton" onclick="highlight(this.parentNode, true, true); deleteObject(this);">✕</div> `
         fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2));
         setTimeout(() => {
             delete require.cache[`./AppData/data.json`];
@@ -843,7 +845,7 @@ function switchObjs() {
                     "button": "Message Channel",
                     "ExtraData": "",
                     "name": "Send Message"
-                  }
+                }
             }
             delete require.cache[`./AppData/data.json`];
             datjson.commands[lastObj].actions[datjson.commands[lastObj].count +1] = newAct
@@ -860,7 +862,7 @@ function switchObjs() {
                     "type": "action",
                     "trigger": "textCommand",
                     "actions": {
-                      "1": {
+                    "1": {
                         "name": "Send Message",
                         "file": "sendmessage.js",
                         "data": {
@@ -869,7 +871,7 @@ function switchObjs() {
                             "ExtraData": "",
                             "name": "Send Message"
                         }
-                      }
+                    }
                     }
             }
             delete require.cache[`./AppData/data.json`];
@@ -976,7 +978,7 @@ function switchObjs() {
         actionButton.innerHTML = ''
 
         input.addEventListener('keydown', (e) => {
-          if (e.key === 13) e.preventDefault();
+        if (e.key === 13) e.preventDefault();
         });
         if (acte == '') {
             actionBut.innerHTML += `<div class="action" id="misss"></div>`
@@ -1000,24 +1002,24 @@ function switchObjs() {
             let included = true;
             
             for (let i = 0; i < name2.length; i++) {
-              if (!name.includes(name2[i])) {
+            if (!name.includes(name2[i])) {
                 included = false;
                 break;
-              }
+            }
             }
             
             if (included) {
-              if (actionFile.UI.compatibleWith.includes(kindOf) || actionFile.UI.compatibleWith.includes("Any")) {
+            if (actionFile.UI.compatibleWith.includes(kindOf) || actionFile.UI.compatibleWith.includes("Any")) {
                 let acten = actons[acte];
                 let afile = require(`./AppData/Actions/${acten}`);
-          
+        
                 actionButton.innerHTML += `<div style="width: 45%;" class="action fade flexbox" style="z-index: 3; background-color: #FFFFFF10 !important;" onclick="openAction('${acten}');" id="${acten}">${afile.data.name}</div>`;
-              } else {
+            } else {
                 miss++
             }
         document.getElementById('misss').innerHTML = miss + ' Actions Hidden (Incompatible)'
             }
-          }
+        }
     
     }
     function deselectAction() {
@@ -1114,11 +1116,11 @@ function switchObjs() {
                     MenuBar = ''
                     for (let option in UIdata[ems].choices) {
                         if (datjson.commands[lastObj].actions[lastAct].data[UIdata[ems].storeAs] == UIdata[ems].choices[option]) {
-                           let thenm = undefined
-                           if (UIdata[ems].extraField) {
+                        let thenm = undefined
+                        if (UIdata[ems].extraField) {
                             thenm = UIdata[ems].extraField
-                           }
-                           console.log(thenm, "thenm")
+                        }
+                        console.log(thenm, "thenm")
                             htmle = `${htmle}<div class="baction" id="${lastAct}" style="animation-name: appearfadenmt; width: 90% !important; text-align: left; border-radius: 12px; border-bottom-left-radius: 0px; border-bottom: solid 2px #FFFFFF40; padding-bottom: 0px; border-bottom-right-radius: 0px; padding-left: 0px; padding-right: 0px; margin-bottom: 6px; padding-left: 24px !important;" onclick="openChoices('${UIdata[ems].storeAs}', this, '${thenm}', '${ems}')">${UIdata[ems].choices[option]}</div>`
                             if (UIdata[ems].choices[option].endsWith('*')) {
                                 htmle = `${htmle} <div class="selectBar" onblur="saveField('${UIdata[ems].extraField}', '${UIdata[ems].storeAs}')" onkeyup="saveField('${UIdata[ems].extraField}', '${UIdata[ems].storeAs}')" id="${thenm}" contenteditable="true">${datjson.commands[lastObj].actions[lastAct].data[UIdata[ems].extraField]}</div>`
@@ -1177,10 +1179,10 @@ function switchObjs() {
         }
         Element.prototype.appendBefore = function (element) {
             element.parentNode.insertBefore(this, element);
-          },false;
-          Element.prototype.appendAfter = function (element) {
+        },false;
+        Element.prototype.appendAfter = function (element) {
             element.parentNode.insertBefore(this, element.nextSibling);
-          },false;
+        },false;
         function mbSelect(elm, storeAs, menuElement, elecf) {
             let pending = ``
             if (document.getElementById(menuElement)) {
@@ -1207,7 +1209,7 @@ function switchObjs() {
                         pending.onkeyup = () => {
                             saveField(menuElement, storeAs)
                 }
-     }
+    }
             }
             let eldpn1 = elm.parentNode
             let eldpn2 = eldpn1
@@ -1274,46 +1276,46 @@ function switchObjs() {
                 let filteredEntries = Object.entries(datjson.commands[lastObj].actions).filter(([key]) => key != keyToRemove);
                 let newJson = {};
                 for (let i = 0; i < filteredEntries.length; i++) {
-                  newJson[i + 1] = filteredEntries[i][1];
+                newJson[i + 1] = filteredEntries[i][1];
                 }
                 datjson.commands[lastObj].count = datjson.commands[lastObj].count - 1
                 datjson.commands[lastObj].actions = newJson;
                 document.getElementById(obj.parentNode.id).style.animationName = 'deleteObject';
                 document.getElementById(obj.parentNode.id).style.animationDuration = '0.3s'
                 setTimeout (() => {
-                  document.getElementById(obj.parentNode.id).remove()
+                document.getElementById(obj.parentNode.id).remove()
                     switchObjs()
                     switchObjs()
 
                 }, 290)
-              } else {
+            } else {
                 if (datjson.count == 1) return
 
-                  let keyToRemove = obj.parentNode.id;
+                let keyToRemove = obj.parentNode.id;
 
-                  let filteredEntries = Object.entries(datjson.commands).filter(([key]) => key != keyToRemove);
-                  let newJson = {};
-                  for (let i = 0; i < filteredEntries.length; i++) {
+                let filteredEntries = Object.entries(datjson.commands).filter(([key]) => key != keyToRemove);
+                let newJson = {};
+                for (let i = 0; i < filteredEntries.length; i++) {
                     newJson[i + 1] = filteredEntries[i][1];
-                  }
-                  datjson.count = datjson.count - 1
-                  datjson.commands = newJson;
-                  document.getElementById(keyToRemove).style.animationName = 'deleteObject';
-                  document.getElementById(keyToRemove).style.animationDuration = '0.3s'
-                  setTimeout( () => {
-                  document.getElementById(keyToRemove).remove()
-                  ActionTile.innerHTML = ''
-                  ActionTile.className = 'actBar'
-                  switchObjs()
-                  switchObjs()
+                }
+                datjson.count = datjson.count - 1
+                datjson.commands = newJson;
+                document.getElementById(keyToRemove).style.animationName = 'deleteObject';
+                document.getElementById(keyToRemove).style.animationDuration = '0.3s'
+                setTimeout( () => {
+                document.getElementById(keyToRemove).remove()
+                ActionTile.innerHTML = ''
+                ActionTile.className = 'actBar'
+                switchObjs()
+                switchObjs()
                 if (datjson.commands[parseFloat(parseFloat(keyToRemove) - 1)]) {
                     highlight(document.getElementById(parseFloat(keyToRemove - 1)), true, true)
-                 } else {
+                } else {
                     highlight(document.getElementById(parseFloat(keyToRemove + 1)), true, true)
-                 }           
-                 lastType = 0
-                  }, 295)
-              }
+                }           
+                lastType = 0
+                }, 295)
+            }
 
             fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2));
             checkErrors()
@@ -1465,8 +1467,8 @@ function switchObjs() {
 
         /* ipcRenderer.send('selectDirectory');
         
-         ipcRenderer.on('selectedDirectory', function (event, dir) {
-          console.log(dir);
+        ipcRenderer.on('selectedDirectory', function (event, dir) {
+        console.log(dir);
         }); */
 
         function sltPrj() {
@@ -1494,15 +1496,15 @@ function switchObjs() {
                     bbar.style.filter = 'blur(0px)'
                     bottombar.style.filter = 'blur(0px)'
                 } else {
-              console.log(dir);
-              let di = fs.readFileSync(dir[0] + '\\AppData\\data.json') 
-              console.log('di' + di)
-              datjson = JSON.parse(di)
-              document.getElementById('opentext').innerHTML = `Opening Project <span style="color: #FFFFFF50">${JSON.parse(di).name}</span> <br> <div style="color: #FFFFFF50">Contains ${JSON.parse(di).count} action groups</div>`
-              setTimeout (() => {
-                              fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2))
-              location.reload()
-              }, 5000)
+            console.log(dir);
+            let di = fs.readFileSync(dir[0] + '\\AppData\\data.json') 
+            console.log('di' + di)
+            datjson = JSON.parse(di)
+            document.getElementById('opentext').innerHTML = `Opening Project <span style="color: #FFFFFF50">${JSON.parse(di).name}</span> <br> <div style="color: #FFFFFF50">Contains ${JSON.parse(di).count} action groups</div>`
+            setTimeout (() => {
+                            fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2))
+            location.reload()
+            }, 5000)
 
             }});
             let actionTile = document.getElementById('actionbar')
@@ -1530,7 +1532,7 @@ function switchObjs() {
             document.body.innerHTML += '<div class="barbuttontexta" id="opentext" style="margin-top: -10vh; position: relative; z-index: 50; text-align: center;">The editor will reload after you select your project</div>'
         }
         let exportFolder;
-         function exportProject() {
+        function exportProject() {
             let actionTile = document.getElementById('actionbar')
             let editor = document.getElementById('edutor')
             let bbar = document.getElementById('bbar')
@@ -1722,8 +1724,6 @@ function switchObjs() {
             } else {
                 fs.writeFileSync('C:\\ProgramData\\studiodata.json', JSON.stringify(datjson, null, 2));
             }
-        }
-        setInterval(() => {
             let elm = document.createElement('div')
             elm.className = 'issue'
             elm.id = 'saveProjectnotif'
@@ -1731,12 +1731,12 @@ function switchObjs() {
             elm.style.zIndex = '10'
             elm.style.width = '23vw'
             elm.style.marginRight = '3vw'
-            elm.style.position = 'relative'
+            elm.style.position = 'absolute'
             elm.style.marginTop = '-90vh'
             elm.style.animationName = 'fadeoutspfload'
             elm.style.animationDuration = '3.1s'
             elm.style.height = '5.5vh'
-            elm.style.padding = '1vh'
+            elm.style.padding = '0.5vh'
             elm.innerHTML = `
             <div class="flexbox" style="margin: auto;">
             <div class="ring" style="width: 3vh; height: 3vh; animation-duration: 1s;"></div>
@@ -1748,7 +1748,34 @@ function switchObjs() {
             setTimeout(() => {
                 let spn = document.getElementById('saveProjectnotif')
                 spn.remove()
-             }, 3000)
+            }, 3000)
+        }
+        setInterval(() => {
+            // let elm = document.createElement('div')
+            // elm.className = 'issue'
+            // elm.id = 'saveProjectnotif'
+            // elm.style.backdropFilter = 'blur(10px)'
+            // elm.style.zIndex = '10'
+            // elm.style.width = '23vw'
+            // elm.style.marginRight = '3vw'
+            // elm.style.position = 'relative'
+            // elm.style.marginTop = '-90vh'
+            // elm.style.animationName = 'fadeoutspfload'
+            // elm.style.animationDuration = '3.1s'
+            // elm.style.height = '5.5vh'
+            // elm.style.padding = '1vh'
+            // elm.innerHTML = `
+            // <div class="flexbox" style="margin: auto;">
+            // <div class="ring" style="width: 3vh; height: 3vh; animation-duration: 1s;"></div>
+            // <div class="barbuttontexta">Saving your project..</div>
+            // </div>
+            // `
+            
+            // document.body.appendChild(elm)
+            // setTimeout(() => {
+            //     let spn = document.getElementById('saveProjectnotif')
+            //     spn.remove()
+            // }, 3000)
             try {
             savePrj()
         } catch(err) {
@@ -1791,8 +1818,8 @@ function switchObjs() {
             null
         }
         setTimeout(() => {
-           let spn = document.getElementById('saveProjectnotif')
-           spn.remove()
+        let spn = document.getElementById('saveProjectnotif')
+        spn.remove()
         }, 3000)
 
         function commandOptions() {
@@ -2025,8 +2052,8 @@ function switchObjs() {
 
             const parent = document.getElementById('parameterTile');
             for (let i = 0; i < parent.children.length; i++) {
-              const child = parent.children[i];
-              child.id = `${i}Param`
+            const child = parent.children[i];
+            child.id = `${i}Param`
             }
             for (let parameter in datjson.commands[lastObj].parameters) {
                 cont++
@@ -2316,9 +2343,9 @@ function switchObjs() {
                     `
                     setTimeout(() => {
                         bottombar.onclick = () => null
-                 }, 100)
+                }, 100)
             }, 300)
- 
+
             }, 500)
         }
         const axios = require('axios')
@@ -2441,9 +2468,9 @@ function switchObjs() {
             element.innerHTML = finalText
             element.blur()
         }
-     }
+    }
 
-     if (type == 'txt') {
+    if (type == 'txt') {
         let text = element.innerText
 
         if (text.split('').length > maxLength) {
@@ -2460,9 +2487,9 @@ function switchObjs() {
             element.innerHTML = finalText
             element.blur()
         }
-     }
+    }
 
-     if (type == 'slsh') {
+    if (type == 'slsh') {
         let text = element.innerText
 
         if (text.split('').length > maxLength) {
@@ -2479,35 +2506,35 @@ function switchObjs() {
             element.innerHTML = finalText
             element.blur()
         }
-     }
+    }
 
     } else {
         if (values.noSpaces == true && values.fromBlur == true) {
             if (element.innerText.split('').includes(' ')) {
                 element.innerHTML = element.innerText.replaceAll(' ', '')
             }
-         }
+        }
 
-         if (values.noCaps == true && values.fromBlur == true) {
+        if (values.noCaps == true && values.fromBlur == true) {
                 element.innerHTML = element.innerText.toLowerCase()
-         }
+        }
 
-         let text = element.innerText
+        let text = element.innerText
 
-         if (text.split('').length > maxLength) {
-             let finalText = ''
- 
-             let count = 0
- 
-             for (let character in text) {
-                     count++
-                 if (count < maxLength) {
-                     finalText += text[character]
-                 }
-             }
-             element.innerHTML = finalText
-             element.blur()
-         }
+        if (text.split('').length > maxLength) {
+            let finalText = ''
+
+            let count = 0
+
+            for (let character in text) {
+                    count++
+                if (count < maxLength) {
+                    finalText += text[character]
+                }
+            }
+            element.innerHTML = finalText
+            element.blur()
+        }
     }
     }
 
@@ -2515,16 +2542,16 @@ function switchObjs() {
 /* 
         if (element.innerText.split('').length > maxLength) {
             let fk = element.innerText.split(''); 
-         let count = 0; element.innerHTML = ''; 
-         element.blur(); 
-         for (let i in fk) {
-             count++;
+        let count = 0; element.innerHTML = ''; 
+        element.blur(); 
+        for (let i in fk) {
+            count++;
             if (count < 25) {
                 element.innerHTML += fk[i]; element.focus();
             } else { 
                 element.blur()
             }
-     }} */
+    }} */
 
 function setProjectName(welm) {
     datjson.name = welm.innerText
@@ -2681,7 +2708,7 @@ function setProjectName(welm) {
             `
             view.innerHTML += `
 <br>
-       <div class="barbuttond" onclick="createButton(${bar})" style="width: 50px; height: 50px; margin-left: auto; margin-right: 4.5vw; border-radius: 1000px; margin-bottom: -5vh; backdrop-filter: blur(72px); background-color: ${datjson.color};">
+    <div class="barbuttond" onclick="createButton(${bar})" style="width: 50px; height: 50px; margin-left: auto; margin-right: 4.5vw; border-radius: 1000px; margin-bottom: -5vh; backdrop-filter: blur(72px); background-color: ${datjson.color};">
             <div class="barbuttontext"><b>+</b></div>
             </div> 
             <div class="flexbox borderbottomz" style="width: calc(95% - 30px); margin-left: auto; margin-right: auto; min-height: 6vh; height: 6vh; background-color: #00000060; border-radius: 12px; padding: 15px; margin-bottom: 0.5vh;" id="buttonsDisplay"></div>
@@ -2795,7 +2822,7 @@ function setProjectName(welm) {
 <div id="dpfgs"></div>
 <div id="dpfg" style="width: 35vw;">
 </div>
-           </div>
+        </div>
                 `
                 if (datjson.buttons.bars[bar].buttons[button].disabled == true) {
                     document.getElementById('disabledbutton').style.backgroundColor = ''
@@ -2913,10 +2940,10 @@ function setProjectName(welm) {
         function newButtonBar() {
             let tme = new Date().getTime()
             let newBar = {name: "Bar",
-             storeAs:"ButtonBar",
-             customId: `${tme}`,
-             type: "buttonBar",
-              buttons: []}
+            storeAs:"ButtonBar",
+            customId: `${tme}`,
+            type: "buttonBar",
+            buttons: []}
         datjson.buttons.bars.push(newBar)
 
         fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2));
@@ -2942,11 +2969,11 @@ function closeMenu() {
         bottombar.style.paddingTop = ''
         bottombar.style.paddingBottom = ''
 
-          setTimeout(() => {
+        setTimeout(() => {
             bottombar.onclick = () => {
                 modifyBar()
             }
-          }, 500)
+        }, 500)
 
         setTimeout(() => {
             bottombar.innerHTML = '•••'
@@ -2990,7 +3017,7 @@ function closeMenu() {
             } else {
                 console.log('deletion')
                 if (lastType == 0) {
-                 deleteObject(document.getElementById(lastObj))
+                deleteObject(document.getElementById(lastObj))
                 } else {
                     deleteObject(document.getElementById(lastAct))
                 }
@@ -3006,18 +3033,18 @@ function closeMenu() {
             let filteredEntries = Object.entries(datjson.commands[lastObj].actions).filter(([key]) => key != keyToRemove);
             let newJson = {};
             for (let i = 0; i < filteredEntries.length; i++) {
-              newJson[i + 1] = filteredEntries[i][1];
+            newJson[i + 1] = filteredEntries[i][1];
             }
             datjson.commands[lastObj].count = datjson.commands[lastObj].count - 1
             datjson.commands[lastObj].actions = newJson;
             document.getElementById(obj.id).style.animationName = 'deleteObject';
             document.getElementById(obj.id).style.animationDuration = '0.3s'
             setTimeout (() => {
-              document.getElementById(obj.id).remove()
-              ActionTile.innerHTML = ''
-              ActionTile.innerHTML = ''
-              ActionTile.innerHTML = ''
-              for (let action in datjson.commands[lastObj].actions) {
+            document.getElementById(obj.id).remove()
+            ActionTile.innerHTML = ''
+            ActionTile.innerHTML = ''
+            ActionTile.innerHTML = ''
+            for (let action in datjson.commands[lastObj].actions) {
                 delete quickdata;
                 delete dataquick;
                 delete count;
@@ -3040,36 +3067,36 @@ function closeMenu() {
                 delete quickie;
             }
             }, 290)
-          } else {
+        } else {
             if (datjson.count == 1) return
 
-              let keyToRemove = obj.id;
+            let keyToRemove = obj.id;
 
-              let filteredEntries = Object.entries(datjson.commands).filter(([key]) => key != keyToRemove);
-              let newJson = {};
-              for (let i = 0; i < filteredEntries.length; i++) {
+            let filteredEntries = Object.entries(datjson.commands).filter(([key]) => key != keyToRemove);
+            let newJson = {};
+            for (let i = 0; i < filteredEntries.length; i++) {
                 newJson[i + 1] = filteredEntries[i][1];
-              }
-              datjson.count = datjson.count - 1
-              datjson.commands = newJson;
-              document.getElementById(keyToRemove).style.animationName = 'deleteObject';
-              document.getElementById(keyToRemove).style.animationDuration = '0.3s'
-              setTimeout( () => {
-              document.getElementById(keyToRemove).remove()
-              ActionTile.innerHTML = ''
-              ActionTile.className = 'actBar'
+            }
+            datjson.count = datjson.count - 1
+            datjson.commands = newJson;
+            document.getElementById(keyToRemove).style.animationName = 'deleteObject';
+            document.getElementById(keyToRemove).style.animationDuration = '0.3s'
+            setTimeout( () => {
+            document.getElementById(keyToRemove).remove()
+            ActionTile.innerHTML = ''
+            ActionTile.className = 'actBar'
             for (let cmd in datjson.commands) {
                 
                 ActionTile.innerHTML += `<div onclick="highlight(this, true, true)" class="action noanim textToLeft" id="${parseFloat(cmd)}" ondblclick="cmdOpen('${cmd}')"><div id="name">${datjson.commands[cmd].name}</div> <div style="opacity: 50%; margin-left: 7px;"> | ${Object.keys(datjson.commands[cmd].actions).length} Actions </div> <div class="deleteActionButton" onclick="deleteObject(this)">✕</div> `
             }
             if (datjson.commands[parseFloat(parseFloat(keyToRemove) - 1)]) {
                 highlight(document.getElementById(parseFloat(keyToRemove - 1)), true, true)
-             } else {
+            } else {
                 highlight(document.getElementById(parseFloat(keyToRemove + 1)), true, true)
-             }           
-             lastType = 0
-              }, 295)
-          }
+            }           
+            lastType = 0
+            }, 295)
+        }
 
         fs.writeFileSync(processPath + '\\AppData\\data.json', JSON.stringify(datjson, null, 2));
         checkErrors()
@@ -3079,20 +3106,20 @@ function closeMenu() {
     let menu = null;
 
 window.oncontextmenu = function (event) {
-  showCustomMenu(event.clientX, event.clientY);
-  return false;     // cancel default menu
+showCustomMenu(event.clientX, event.clientY);
+return false;     // cancel default menu
 }
 
 document.addEventListener('click', function(event) {
-  if (menu && !menu.contains(event.target)) {
+if (menu && !menu.contains(event.target)) {
     menu.remove();
     menu = null;
-  }
+}
 });
 
 function showCustomMenu(x, y) {
 
-  if (!menu) {
+if (!menu) {
     
     menu = document.createElement('div')
     menu.style.width = '15vw'
@@ -3249,7 +3276,7 @@ function showCustomMenu(x, y) {
         }
     }
     }
-  }}} else {
+}}} else {
     menu.innerHTML = `       
     <div class="barbuttontexta" style="background-color: #FFFFFF15; border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom: solid 2px #FFFFFF30; padding: 2px;">Quick Options</div>
     <div class="zaction fullwidth" style="" onclick="searchCommand()"><div class="barbuttontexta">Search Command</div></div>
@@ -3259,7 +3286,7 @@ function showCustomMenu(x, y) {
     <div class="zaction fullwidth" style="" onclick="savePrj()"><div class="barbuttontexta">Save</div></div>
 
     `
-  }
+}
 }
 }
 function setVariableIn(elementId, type, varName) {
@@ -3292,5 +3319,4 @@ function setVariableIn(elementId, type, varName) {
     if (type == 1) {
         null
     }
-}   
-    
+}  
